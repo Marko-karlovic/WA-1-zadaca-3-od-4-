@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    {{ day }} / {{ month }} / {{ year }} , {{ hour }} : {{ minute }} <br>
+    {{ current }} <br> <br> <br>
+    Random number : {{ randomNum }} <br>
+    List : {{ list }}
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        current: '',
+        day: new Date().getDate(),
+        month: new Date().getMonth(),
+        year: new Date().getFullYear(),
+        hour: new Date().getUTCHours(),
+        minute: new Date().getUTCMinutes(),
+        weather: ["Sunčano je!", "Pada kiša", "Oblačno je, ostani unutra"],
+        current: "Sunčano je!",
+        randomNum: Math.floor(Math.random() * 100) + 1,
+        list: []
+      },
+      mounted(){
+          this.list.push(this.randomNum);
+      }
+    })
+  </script>
+</body>
+</html>
